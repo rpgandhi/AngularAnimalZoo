@@ -5,12 +5,12 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
   <select (change)="onChange($event.target.value)">
-    <option value="allAnimals"  selected="selected">All Animals</option>
+    <option value="allAnimals">All Animals</option>
     <option value="matureAnimals">Animals over age 2</option>
     <option value="immatureAnimals">Animals under age 2</option>
   </select>
 
-    <ul *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
+    <ul (click)="isMature(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
       <li>Species: {{currentAnimal.species}}</li>
       <li>Name: {{currentAnimal.name}}</li>
       <li>Age: {{currentAnimal.age}}</li>
@@ -32,7 +32,8 @@ import { Animal } from './animal.model';
 export class AnimalListComponent {
   @Input() childAnimalList: Animal [];
   @Output() clickSender = new EventEmitter();
-  filterByMaturity: string = "immatureAnimals";
+
+  filterByMaturity: string = "allAnimals";
 
     editButtonHasBeenClicked(animalToEdit: Animal) {
       this.clickSender.emit(animalToEdit);

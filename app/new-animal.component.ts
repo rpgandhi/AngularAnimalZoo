@@ -47,7 +47,7 @@ import { Animal } from './animal.model';
     <option [value]="1">Young (under 2 years)</option>
     <option [value]="2">Mature (over 2 years)</option>
   </select>
-  <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value)/ newSpecies.value=' ';">Add</button>
+  <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value)/ newSpecies.value=' '; newName.value=''; newAge.value=' '; newDiet.value=' '; newLocation.value=' '; newCaretakers.value=' '; newSex.value=' '; newLikes.value=' '; newDislikes.value=' ';">Add</button>
   </div>
   `
 })
