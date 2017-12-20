@@ -7,10 +7,10 @@ import { Animal } from './animal.model';
   <select (change)="onChange($event.target.value)">
     <option value="allAnimals">All Animals</option>
     <option value="matureAnimals">Animals over age 2</option>
-    <option value="immatureAnimals">Animals under age 2</option>
+    <option value="immatureAnimals">Animals age 2 and under</option>
   </select>
 
-    <ul (click)="isMature(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
+    <ul *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
       <li>Species: {{currentAnimal.species}}</li>
       <li>Name: {{currentAnimal.name}}</li>
       <li>Age: {{currentAnimal.age}}</li>
@@ -21,8 +21,7 @@ import { Animal } from './animal.model';
       <li>Likes: {{currentAnimal.likes}}</li>
       <li>Dislikes: {{currentAnimal.dislikes}}</li>
 
-      <input *ngIf="currentAnimal.maturity === true" type="checkbox" checked (click)="toggleMature(currentAnimal, false)"/>
-      <input *ngIf="currentAnimal.maturity === false" type="checkbox" (click)="toggleMature(currentAnimal, true)"/>
+
       <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit {{currentAnimal.species}}</button>
     </ul>
 
@@ -45,8 +44,8 @@ export class AnimalListComponent {
       this.filterByMaturity = optionFromMenu;
     }
 
-    toggleMaturity(clickedAnimal: Animal, setMaturity: boolean) {
-      clickedAnimal.mature = setMaturity;
-    }
+    // toggleMaturity(clickedAnimal: Animal, setMaturity: boolean) {
+    //   clickedAnimal.mature = setMaturity;
+    // }
 
 }
