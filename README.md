@@ -1,6 +1,6 @@
 # Animal Zoo
 
-This is a project created for the Epicodus code challenge for week 2 of Javascript.
+This is a project created for the Epicodus code challenge for week 2 of Javascript. It is an program for a hypothetical zoo where the user can add new animals, edit existing animals, view all animals, and filter to view animals by age.
 
 ## Prerequisites
 
